@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO</title>
+</head>
+<body>
+    <h1>Todo List App</h1>
+    <form action="/" method="post">
+        <button type="submit" name="category" value="personal">Personal</button>
+    </form>
+    <form action="/work" method="post">
+        <button type="submit" name="category" value="work">Work</button>
+    </form>
+    <form method="post">
+        <input type="text" name="add">
+        <button type="submit">Add</button>
+    </form>
+    <table>
+        <% if(locals.category && category === 'personal' && items.length > 0) { %>
+            <% items.forEach(item => { %>
+                <tr>
+                    <td> <%= item %> </td>
+                </tr>
+            <% }); %>
+        <% } else if (locals.category && category === 'work' && items.length > 0) { %>
+            <% items.forEach(item => { %>
+                <tr>
+                    <td> <%= item %> </td>
+                </tr>
+            <% }); %>
+        <% } else { %>
+            <tr>
+                <td>No items added yet.</td>
+            </tr>
+        <% } %>
+    </table>
+</body>
+</html>
